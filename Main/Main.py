@@ -1,9 +1,26 @@
 from Models.Pessoa import Pessoa              # Importa a classe Pessoa
 from Structures.HashTable import HashTable    # Importa a tabela hash
+from Helpers.gerar_cpf import gerar_cpf
 import time
+
+
+
 
 def menu():
     tabela = HashTable(17)  # Cria uma tabela hash com tamanho 17
+
+    # 🔹 Gera e insere 30 CPFs antes do menu
+    print("\n--- CPFs gerados automaticamente ---")
+    for i in range(30):
+        cpf = gerar_cpf()  # gera CPF aleatório
+        nome = f"Pessoa{i + 1}"  # cria nome fictício
+        idade = 18 + (i % 40)  # idades variadas
+        tabela.inserir(Pessoa(cpf, nome, idade))  # insere na hash
+        print(f"{i + 1:02d}. CPF: {cpf} | Nome: {nome} | Idade: {idade}")
+    print("--------------------------------------------------------------")
+
+
+
 
     while True:  # Loop infinito até o usuário escolher sair
         print("-------------------------------------------")
@@ -24,6 +41,7 @@ def menu():
             nome = input("Digite o nome: ")   # Pede nome
             idade = int(input("Digite a idade: "))  # Pede idade
             tabela.inserir(Pessoa(cpf, nome, idade)) # Insere a pessoa na tabela
+
 
         elif opcao == "2":  # Buscar pessoa
             cpf = input("Digite o CPF para buscar: ")   # Pede CPF para busca
