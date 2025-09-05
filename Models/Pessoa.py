@@ -10,4 +10,4 @@ class Pessoa:
     # Metodo para exibir a representação em texto de uma Pessoa
     def __repr__(self): # representação em str do objeto.
         # Retorna uma str formatada com os dados da pessoa
-        return f"[CPF: {self.cpf} Nome: {self.nome} Idade:{self.idade}"
+        return f"\nCPF: {self.cpf}\nNome: {self.nome} \nIdade:{self.idade}"
