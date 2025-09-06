@@ -38,10 +38,19 @@ class HashTable:
                 return True                   # Retorna True indicando sucesso
         return False                          # Retorna False se não encontrar
 
-    # Imprime todo o conteúdo da tabela
+    # Imprime todo o conteudo da tabela
     def imprimir(self):
-        for i, lista in enumerate(self.tabela):   # Percorre cada índice da tabela
-            print(f"Índice {i}: {lista}")         # Mostra o índice e a lista de pessoas dentro dele
+        print("\n---------------- Estado Atual da Tabela Hash ----------------")
+        for i, lista in enumerate(self.tabela):
+            if lista:  # só mostra se tiver algo no bucket
+                print("------------------------------------------------------------")
+                print(f"\nÍndice {i}:\n")
+                for p in lista:
+                    print(f"   → CPF: {p.cpf} | Nome: {p.nome} | Idade: {p.idade}\n")
+            else:
+                print("--------------------------------------------------------------")
+                print(f"\nÍndice {i}:\n")
+                print("   → vazio\n")
 
     # Exibe estatísticas sobre a tabela
     def estatisticas(self):

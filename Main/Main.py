@@ -2,7 +2,7 @@ from Models.Pessoa import Pessoa              # Importa a classe Pessoa
 from Structures.HashTable import HashTable    # Importa a tabela hash
 from Helpers.gerar_cpf import gerar_cpf
 import time
-
+5
 
 
 
@@ -23,20 +23,21 @@ def menu():
 
 
     while True:  # Loop infinito até o usuário escolher sair
-        print("-------------------------------------------")
-        print("--- Sistema de Cadastro com Tabela Hash ---\n")
+        print("\n")
+        print("------------ Sistema de Cadastro com Tabela Hash ------------\n")
         print("1 - Inserir Pessoa")
         print("2 - Buscar Pessoa")
         print("3 - Excluir Pessoa")
         print("4 - Imprimir Tabela")
         print("5 - Estatísticas")
-        print("0 - Sair")
-        print("-------------------------------------------")
+        print("0 - Sair\n")
+        print("--------------------------------------------------------------")
         time.sleep(1)
 
-        opcao = input("Escolha: ")  # Recebe a opção do usuário
+        opcao = input("Escolha: ")
 
         if opcao == "1":  # Inserção de pessoa
+            print(" ")
             cpf = input("Digite o CPF: ")     # Pede CPF
             nome = input("Digite o nome: ")   # Pede nome
             idade = int(input("Digite a idade: "))  # Pede idade
@@ -44,13 +45,15 @@ def menu():
 
 
         elif opcao == "2":  # Buscar pessoa
+            print(" ")
             cpf = input("Digite o CPF para buscar: ")   # Pede CPF para busca
             pessoa = tabela.buscar(cpf)                 # Busca na tabela
-            print(pessoa if pessoa else "\nNão encontrado") # Mostra o resultado
+            print(pessoa if pessoa else "\nCPF não encontrado!") # Mostra o resultado
 
         elif opcao == "3":  # Excluir pessoa
+            print(" ")
             cpf = input("Digite o CPF para excluir: ")  # Pede CPF
-            print("\nExcluído!" if tabela.excluir(cpf) else "\nNão encontrado") # Mostra se conseguiu excluir
+            print("\nCPF excluído!" if tabela.excluir(cpf) else "\nCPF não encontrado!") # Mostra se conseguiu excluir
 
         elif opcao == "4":  # Imprimir tabela completa
             print(" ")
